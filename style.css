@@ -41,7 +41,7 @@ h1, h2, h3 {
     margin: 0 auto; 
 }
 
-/* --- Navbar --- */
+/* --- Navbar & Logo --- */
 .navbar {
     height: 100px; 
     background: var(--white);
@@ -91,13 +91,13 @@ nav ul li a {
     border-radius: 2px;
 }
 
-/* --- 橘色標籤標題 (修正文字偏小問題) --- */
+/* --- 橘色標籤標題 (Overline) --- */
 .overline { 
     color: var(--accent); 
-    font-weight: 700;           /* 加粗 */
+    font-weight: 700; 
     text-transform: uppercase; 
-    letter-spacing: 5px;       /* 字間距加大展現專業感 */
-    font-size: 16px;           /* 顯著放大字號 */
+    letter-spacing: 5px; 
+    font-size: 16px; 
     margin-bottom: 22px; 
     display: block; 
 }
@@ -125,7 +125,80 @@ nav ul li a {
 .btn-dark { background: var(--primary-dark); color: var(--white); }
 .btn-outline { border: 1px solid var(--primary-dark); color: var(--primary-dark); }
 
-/* --- Team Grid --- */
+/* --- Connect 表單修復 (解決跑版問題) --- */
+.contact {
+    background-color: var(--grey-light);
+    padding: 120px 0;
+}
+
+.custom-form-wrapper {
+    margin-top: 60px;
+    width: 100%;
+}
+
+.form-row {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.form-group label {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--primary-dark);
+    margin-bottom: 10px;
+    display: block;
+}
+
+.form-group input, 
+.form-group textarea {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #ccc; /* 恢復底線樣式 */
+    background: transparent;
+    padding: 12px 0;
+    font-family: inherit;
+    font-size: 16px;
+    transition: 0.3s;
+    outline: none;
+}
+
+.form-group input:focus, 
+.form-group textarea:focus {
+    border-bottom: 1px solid var(--accent);
+}
+
+/* 提交按鈕修正 */
+.submit-btn {
+    width: 100%;
+    background-color: var(--primary-dark);
+    color: var(--white);
+    padding: 20px;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 20px;
+}
+
+.submit-btn:hover {
+    background-color: var(--accent);
+}
+
+/* --- Team Grid & Modals --- */
 .team-grid { 
     display: grid; 
     grid-template-columns: repeat(3, 1fr); 
@@ -158,21 +231,16 @@ nav ul li a {
     text-transform: uppercase; 
 }
 
-/* --- 核心修正：Modal 彈出視窗樣式 --- */
 .modal {
-    display: none !important; /* 強制預設隱藏，防止出現在網頁底部 */
+    display: none !important;
     position: fixed; 
-    z-index: 9999;           /* 確保在最上層 */
-    left: 0; top: 0; 
-    width: 100%; height: 100%; 
-    background-color: rgba(15, 35, 50, 0.9); /* 深藍透明背景 */
-    align-items: center; 
-    justify-content: center;
+    z-index: 9999;
+    left: 0; top: 0; width: 100%; height: 100%; 
+    background-color: rgba(15, 35, 50, 0.9);
+    align-items: center; justify-content: center;
 }
 
-/* 當 JavaScript 修改為 flex 時顯示 */
-.modal[style*="display: flex"], 
-.modal[style*="display:flex"] {
+.modal[style*="display: flex"], .modal[style*="display:flex"] {
     display: flex !important;
 }
 
@@ -203,12 +271,7 @@ nav ul li a {
 .close:hover { color: var(--accent); }
 
 .modal-header h3 { font-size: 32px; margin-bottom: 10px; }
-.modal-body p { 
-    margin: 25px 0; 
-    font-size: 16px; 
-    line-height: 1.8; 
-    color: var(--text-main);
-}
+.modal-body p { margin: 25px 0; font-size: 16px; line-height: 1.8; color: var(--text-main); }
 
 .linkedin-link {
     display: inline-block;
@@ -229,4 +292,5 @@ nav ul li a {
 @media (max-width: 992px) {
     .team-grid { grid-template-columns: 1fr; }
     .hero h1 { font-size: 38px; }
+    .form-row { flex-direction: column; gap: 0; }
 }
