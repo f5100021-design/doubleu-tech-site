@@ -20,7 +20,6 @@ body {
 }
 h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--primary-dark); font-weight: 400; }
 .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; }
-.narrow { max-width: 800px; margin: 0 auto; }
 
 /* --- Navbar --- */
 .navbar {
@@ -29,63 +28,52 @@ h1, h2, h3 { font-family: 'Playfair Display', serif; color: var(--primary-dark);
     display: flex; align-items: center;
 }
 .nav-inner { display: flex; justify-content: space-between; align-items: center; width: 100%; }
-.logo img { height: 80px; width: auto; transition: transform 0.3s ease; }
+.logo img { height: 80px; width: auto; }
 nav ul { list-style: none; display: flex; align-items: center; }
 nav ul li { margin-left: 35px; }
-nav ul li a { text-decoration: none; color: var(--primary-dark); font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; }
+nav ul li a { text-decoration: none; color: var(--primary-dark); font-size: 13px; font-weight: 600; text-transform: uppercase; }
 .nav-btn { border: 2px solid var(--accent); color: var(--accent) !important; padding: 10px 22px; border-radius: 2px; }
 
-/* --- 標籤與間距優化 --- */
-.overline { 
-    color: var(--accent); font-weight: 700; text-transform: uppercase; 
-    letter-spacing: 5px; font-size: 16px; margin-bottom: 25px; display: block; 
+/* --- About Special Card --- */
+.overline { color: var(--accent); font-weight: 700; text-transform: uppercase; letter-spacing: 5px; font-size: 16px; margin-bottom: 25px; display: block; }
+.section { padding: 100px 0; }
+.meaning-card { background: #fdf6f2; padding: 40px; border-left: 6px solid var(--accent); margin-top: 40px; }
+.split { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+
+/* --- Team Grid (修正照片過大與不並排問題) --- */
+.team-grid { 
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); /* 確保三個人並排 */
+    gap: 40px; 
+    margin-top: 60px; 
+    text-align: center;
 }
-
-.section { padding: 120px 0; }
-.centered { text-align: center; }
-
-/* 標題與 Ready 段落的空間控制 */
-.section-header { margin-bottom: 70px; } 
-.section-header h2 { font-size: 42px; margin-bottom: 25px; } 
-.ready-text { 
-    font-size: 18px; 
-    color: var(--text-secondary); 
-    white-space: nowrap; /* 強制不換行 */
-    letter-spacing: 0.5px;
+.team-member { cursor: pointer; transition: 0.3s; }
+.member-photo { 
+    width: 200px; height: 200px; 
+    border-radius: 50%; 
+    margin: 0 auto 25px; 
+    overflow: hidden; 
+    border: 1px solid #eee; 
 }
+.member-photo img { width: 100%; height: 100%; object-fit: cover; }
+.role { color: var(--accent); font-weight: 700; font-size: 13px; text-transform: uppercase; }
 
-/* --- Hero --- */
-.hero { padding: 140px 0 110px; background-color: var(--grey-light); }
-.hero h1 { font-size: 54px; line-height: 1.15; margin-bottom: 30px; }
-.btn { padding: 18px 38px; text-decoration: none; font-weight: 600; display: inline-block; transition: 0.3s; }
-.btn-dark { background: var(--primary-dark); color: var(--white); margin-right: 15px; }
-.btn-outline { border: 1px solid var(--primary-dark); color: var(--primary-dark); }
+/* --- Modal 彈出視窗 (確保預設隱藏) --- */
+.modal {
+    display: none !important; /* 強制預設不顯示 */
+    position: fixed; z-index: 9999;
+    left: 0; top: 0; width: 100%; height: 100%; 
+    background-color: rgba(15, 35, 50, 0.9); align-items: center; justify-content: center;
+}
+.modal-content { background: var(--white); padding: 50px; width: 90%; max-width: 650px; border-radius: 4px; position: relative; }
+.close { position: absolute; right: 25px; top: 20px; font-size: 35px; cursor: pointer; color: #999; }
+.linkedin-link { display: inline-block; padding: 12px 25px; background: #0077b5; color: white; text-decoration: none; font-size: 13px; font-weight: 600; margin-top: 20px; }
 
-/* --- Connect Form 修復 --- */
+/* --- Connect Form & Footer --- */
 .contact { background-color: var(--grey-light); }
-.custom-form-wrapper { margin-top: 50px; }
+.section-header { margin-bottom: 70px; }
+.ready-text { font-size: 18px; color: var(--text-secondary); white-space: nowrap; }
 .form-row { display: flex; gap: 40px; margin-bottom: 35px; }
 .form-group { flex: 1; display: flex; flex-direction: column; text-align: left; }
-.form-group label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--primary-dark); margin-bottom: 10px; }
-.form-group input, .form-group textarea {
-    width: 100%; border: none; border-bottom: 1px solid #bbb; background: transparent;
-    padding: 12px 0; font-family: inherit; font-size: 16px; outline: none; transition: 0.3s;
-}
-.form-group input:focus, .form-group textarea:focus { border-bottom: 1px solid var(--accent); }
-.submit-btn {
-    width: 100%; background: var(--primary-dark); color: var(--white); padding: 22px;
-    border: none; font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px;
-    cursor: pointer; margin-top: 30px; transition: 0.3s;
-}
-.submit-btn:hover { background: var(--accent); transform: translateY(-3px); }
-
-/* --- Footer --- */
-.footer { padding: 60px 0; background: var(--primary-dark); color: var(--white); text-align: center; }
-.footer img { height: 40px; margin-bottom: 25px; filter: brightness(0) invert(1); }
-.footer p { opacity: 0.5; font-size: 12px; }
-
-/* 手機版相容性：在小螢幕允許換行 */
-@media (max-width: 992px) { 
-    .ready-text { white-space: normal; } 
-    .form-row { flex-direction: column; gap: 30px; }
-}
+.form-group label { font-size
