@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services | DoubleU-Tech Advisory</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* 專屬 Services 頁面的展開動畫樣式 */
+        details {
+            border-bottom: 1px solid #eee;
+            padding: 20px 0;
+            cursor: pointer;
+        }
+        summary {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--primary-dark);
+        }
+        summary::-webkit-details-marker { display: none; }
+        summary::after {
+            content: '+';
+            font-size: 30px;
+            color: var(--accent);
+        }
+        details[open] summary::after { content: '-'; }
+        .details-content {
+            padding: 20px 0;
+            color: var(--text-secondary);
+            font-weight: 300;
+        }
+        .details-content ul { padding-left: 20px; }
+    </style>
+</head>
+<body>
+
+<header class="navbar">
+    <div class="container nav-inner">
+        <div class="logo"><a href="index.html" class="logo-link"><img src="assets/images/DoubleU-logotype-24.png"></a></div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html" style="color:var(--accent)">Services</a></li>
+                <li><a href="success-stories.html">Success Stories</a></li>
+                <li><a href="about.html">About US</a></li>
+                <li><a href="#contact" class="nav-btn">Connect</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section class="section">
+    <div class="container">
+        <p class="overline">The Expertise</p>
+        <h2 style="font-size: 48px; margin-bottom: 40px;">Tailored Solutions to Grow Your Business</h2>
+        <p style="max-width: 800px; margin-bottom: 60px;">We provide a comprehensive suite of services designed to ensure your success in Taiwan and beyond. From crafting strategic plans to establishing valuable connections.</p>
+
+        <details>
+            <summary>Product Strategy & Positioning Advisory</summary>
+            <div class="details-content">
+                <p>Our team conducts in-depth market research to uncover Taiwan’s dynamic trends and gather essential consumer feedback.</p>
+                <ul>
+                    <li>Market Research & Analysis</li>
+                    <li>Consumer Feedback Integration</li>
+                    <li>Winning Strategy Crafting</li>
+                </ul>
+            </div>
+        </details>
+
+        <details>
+            <summary>Marketing & Promotion</summary>
+            <div class="details-content">
+                <ul>
+                    <li><strong>Material Generation:</strong> Compelling marketing materials that communicate your value.</li>
+                    <li><strong>Exhibition Support:</strong> Expert planning and execution for industry events.</li>
+                    <li><strong>Event & Seminar Organization:</strong> Targeted engagement for your business.</li>
+                    <li><strong>Publication:</strong> Press releases and magazine features.</li>
+                </ul>
+            </div>
+        </details>
+
+        <details>
+            <summary>Business Development & Model Optimization</summary>
+            <div class="details-content">
+                <ul>
+                    <li>Establish Partnerships and Connections</li>
+                    <li>Generate Leads and Prospects</li>
+                    <li>Expand Global Presence (Taiwan to US)</li>
+                    <li>Scenario-Based Analysis & Profit Maximization</li>
+                </ul>
+            </div>
+        </details>
+    </div>
+</section>
+
+</body>
+</html>
