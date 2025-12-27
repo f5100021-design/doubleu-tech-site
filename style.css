@@ -21,7 +21,7 @@ body {
     background-color: var(--white);
     line-height: 1.8;
     scroll-behavior: smooth;
-    padding-top: 100px; /* 留出空間給固定導航欄 */
+    padding-top: 100px; 
 }
 
 h1, h2, h3 { 
@@ -41,9 +41,9 @@ h1, h2, h3 {
     margin: 0 auto; 
 }
 
-/* --- Navbar & Logo (修正 Logo 大小與點擊) --- */
+/* --- Navbar --- */
 .navbar {
-    height: 100px; /* 增加導航高度，讓 Logo 更顯眼 */
+    height: 100px; 
     background: var(--white);
     position: fixed; 
     width: 100%; 
@@ -61,22 +61,10 @@ h1, h2, h3 {
     width: 100%; 
 }
 
-.logo-link {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-}
-
 .logo img { 
-    height: 80px;        /* 顯著放大 Logo，解決太小的問題 */
+    height: 80px; 
     width: auto; 
-    max-width: 300px; 
-    object-fit: contain; 
     transition: transform 0.3s ease;
-}
-
-.logo img:hover {
-    transform: scale(1.03); /* 懸停時輕微放大 */
 }
 
 nav ul { 
@@ -85,9 +73,7 @@ nav ul {
     align-items: center; 
 }
 
-nav ul li { 
-    margin-left: 35px; 
-}
+nav ul li { margin-left: 35px; }
 
 nav ul li a { 
     text-decoration: none; 
@@ -98,10 +84,6 @@ nav ul li a {
     letter-spacing: 1.5px; 
 }
 
-nav ul li a:hover { 
-    color: var(--accent); 
-}
-
 .nav-btn { 
     border: 2px solid var(--accent); 
     color: var(--accent) !important; 
@@ -109,9 +91,15 @@ nav ul li a:hover {
     border-radius: 2px;
 }
 
-.nav-btn:hover { 
-    background: var(--accent); 
-    color: var(--white) !important; 
+/* --- 橘色標籤標題 (修正文字偏小問題) --- */
+.overline { 
+    color: var(--accent); 
+    font-weight: 700;           /* 加粗 */
+    text-transform: uppercase; 
+    letter-spacing: 5px;       /* 字間距加大展現專業感 */
+    font-size: 16px;           /* 顯著放大字號 */
+    margin-bottom: 22px; 
+    display: block; 
 }
 
 /* --- Hero Section --- */
@@ -120,118 +108,24 @@ nav ul li a:hover {
     background-color: var(--grey-light); 
 }
 
-/* --- 優化後的 Overline 橘色標籤樣式 --- */
-.overline { 
-    color: var(--accent); 
-    font-weight: 700;         /* 確保是粗體 */
-    text-transform: uppercase; 
-    letter-spacing: 5px;      /* 增加間距提升高級感 */
-    font-size: 16px;          /* 從 11px 放大至 14px */
-    margin-bottom: 22px;      /* 增加與下方標題的距離 */
-    display: block; 
-}
-
 .hero h1 { 
     font-size: 54px; 
-    margin-bottom: 30px; 
-    max-width: 850px; 
     line-height: 1.15; 
-}
-
-.hero-subtext { 
-    font-size: 19px; 
-    color: var(--text-secondary); 
-    margin-bottom: 45px; 
-    max-width: 600px; 
-    font-weight: 300; 
+    margin-bottom: 30px;
 }
 
 .btn { 
     padding: 18px 38px; 
     text-decoration: none; 
     font-weight: 600; 
-    font-size: 14px; 
     display: inline-block; 
     transition: 0.3s; 
-    letter-spacing: 1px; 
 }
 
-.btn-dark { 
-    background: var(--primary-dark); 
-    color: var(--white); 
-    margin-right: 15px; 
-}
+.btn-dark { background: var(--primary-dark); color: var(--white); }
+.btn-outline { border: 1px solid var(--primary-dark); color: var(--primary-dark); }
 
-.btn-outline { 
-    border: 1px solid var(--primary-dark); 
-    color: var(--primary-dark); 
-}
-
-.btn:hover { 
-    opacity: 0.9; 
-    transform: translateY(-2px); 
-}
-
-/* --- Services --- */
-.section { 
-    padding: 120px 0; 
-}
-
-.section-header { 
-    margin-bottom: 80px; 
-}
-
-.section-header h2 { 
-    font-size: 40px; 
-}
-
-.centered { 
-    text-align: center; 
-}
-
-.service-grid { 
-    display: grid; 
-    grid-template-columns: repeat(3, 1fr); 
-    gap: 40px; 
-}
-
-.service-item { 
-    padding: 55px 45px; 
-    border: 1px solid #f2f2f2; 
-    background: var(--white);
-    transition: 0.4s; 
-}
-
-.service-item:hover { 
-    border-color: var(--accent); 
-    transform: translateY(-5px); 
-    box-shadow: 0 15px 35px rgba(0,0,0,0.03); 
-}
-
-.service-num { 
-    font-size: 11px; 
-    font-weight: 700; 
-    color: var(--accent); 
-    display: block; 
-    margin-bottom: 25px; 
-    letter-spacing: 2px; 
-}
-
-/* --- About Split --- */
-.split { 
-    display: grid; 
-    grid-template-columns: 1fr 1fr; 
-    gap: 100px; 
-    align-items: center; 
-}
-
-.about-image-placeholder { 
-    height: 500px; 
-    background: var(--grey-light); 
-    border: 1px solid #eee; 
-}
-
-/* --- Team (修正照片圓框與裁切) --- */
+/* --- Team Grid --- */
 .team-grid { 
     display: grid; 
     grid-template-columns: repeat(3, 1fr); 
@@ -240,179 +134,99 @@ nav ul li a:hover {
     margin-top: 80px; 
 }
 
+.team-member { cursor: pointer; transition: 0.3s; }
+.team-member:hover { transform: translateY(-5px); }
+
 .member-photo { 
-    width: 200px; 
-    height: 200px; 
-    background: var(--grey-light); 
+    width: 200px; height: 200px; 
     border-radius: 50%; 
     margin: 0 auto 30px; 
-    overflow: hidden;    /* 強制裁切溢出的照片部分 */
+    overflow: hidden; 
     border: 1px solid #eee;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
-.member-photo img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;   /* 讓 Teresa 與 Fred 的照片填滿圓圈 */
-    display: block;
-}
-
-/* 針對 Bert 的去背圖進行特殊優化 */
-.member-photo img[src*="removebg"] {
-    object-fit: contain; 
-    width: 88%;          /* 縮小一點點避免貼邊 */
-    height: 88%;
-}
-
-.team-member h4 { 
-    margin-bottom: 5px; 
-    font-size: 20px; 
+.member-photo img { 
+    width: 100%; height: 100%; 
+    object-fit: cover; 
 }
 
 .role { 
     color: var(--accent); 
-    font-weight: 600; 
-    font-size: 13px; 
-    text-transform: uppercase; 
-    letter-spacing: 2px; 
-    display: block; 
-}
-
-/* --- Contact Form (自定義風格) --- */
-.contact { 
-    background-color: var(--grey-light); 
-}
-
-.custom-form-wrapper { 
-    margin-top: 60px; 
-}
-
-.form-row { 
-    display: flex; 
-    gap: 30px; 
-    margin-bottom: 30px; 
-}
-
-.form-group { 
-    flex: 1; 
-    display: flex; 
-    flex-direction: column; 
-    margin-bottom: 30px; 
-}
-
-.form-group label { 
-    font-size: 11px; 
     font-weight: 700; 
-    text-transform: uppercase; 
+    font-size: 14px; 
     letter-spacing: 2px; 
-    color: var(--primary-dark); 
-    margin-bottom: 10px; 
+    text-transform: uppercase; 
 }
 
-.form-group input, 
-.form-group textarea {
-    border: none; 
-    border-bottom: 1px solid #ccc; 
-    background: transparent; 
-    padding: 12px 0;
-    font-family: inherit; 
-    font-size: 16px; 
-    transition: 0.3s;
-}
-
-.form-group input:focus, 
-.form-group textarea:focus { 
-    outline: none; 
-    border-bottom: 1px solid var(--accent); 
-}
-
-/* --- Footer --- */
-.footer { 
-    padding: 90px 0 50px; 
-    background: var(--primary-dark); 
-    color: var(--white); 
-    text-align: center; 
-}
-
-.footer-logo img { 
-    height: 40px;        /* Footer Logo 稍微大一點 */
-    margin-bottom: 30px; 
-    filter: brightness(0) invert(1); /* 讓頁尾 Logo 變純白 */
-}
-
-.footer p { 
-    font-size: 12px; 
-    opacity: 0.5; 
-    letter-spacing: 1px; 
-}
-
-/* --- Responsive (手機版優化) --- */
-@media (max-width: 992px) {
-    .service-grid, .team-grid, .split { 
-        grid-template-columns: 1fr; 
-    }
-    .form-row {
-        flex-direction: column;
-        gap: 0;
-    }
-    .hero h1 { 
-        font-size: 34px; 
-    }
-    nav { 
-        display: none; 
-    }
-}
-/* Modal 彈出視窗基礎樣式 */
+/* --- 核心修正：Modal 彈出視窗樣式 --- */
 .modal {
-    display: none; 
+    display: none !important; /* 強制預設隱藏，防止出現在網頁底部 */
     position: fixed; 
-    z-index: 2000; 
-    left: 0; top: 0; width: 100%; height: 100%; 
-    background-color: rgba(15, 35, 50, 0.85); /* 深藍透明背景 */
-    align-items: center; justify-content: center;
+    z-index: 9999;           /* 確保在最上層 */
+    left: 0; top: 0; 
+    width: 100%; height: 100%; 
+    background-color: rgba(15, 35, 50, 0.9); /* 深藍透明背景 */
+    align-items: center; 
+    justify-content: center;
+}
+
+/* 當 JavaScript 修改為 flex 時顯示 */
+.modal[style*="display: flex"], 
+.modal[style*="display:flex"] {
+    display: flex !important;
 }
 
 .modal-content {
     background-color: var(--white);
-    padding: 40px;
+    padding: 50px;
     width: 90%;
-    max-width: 600px;
+    max-width: 650px;
     border-radius: 4px;
     position: relative;
-    animation: slideIn 0.3s ease;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+    animation: slideIn 0.3s ease-out;
 }
 
 @keyframes slideIn {
-    from { transform: translateY(20px); opacity: 0; }
+    from { transform: translateY(30px); opacity: 0; }
     to { transform: translateY(0); opacity: 1; }
 }
 
 .close {
     position: absolute;
-    right: 20px; top: 15px;
-    font-size: 28px;
+    right: 25px; top: 20px;
+    font-size: 35px;
     cursor: pointer;
-    color: var(--text-secondary);
+    color: #999;
 }
 
-.modal-header h3 { margin-bottom: 5px; font-size: 28px; }
-.modal-body p { margin: 20px 0; font-size: 15px; color: var(--text-main); text-align: justify; }
+.close:hover { color: var(--accent); }
+
+.modal-header h3 { font-size: 32px; margin-bottom: 10px; }
+.modal-body p { 
+    margin: 25px 0; 
+    font-size: 16px; 
+    line-height: 1.8; 
+    color: var(--text-main);
+}
 
 .linkedin-link {
     display: inline-block;
-    padding: 10px 20px;
-    background: #0077b5; /* LinkedIn 藍 */
+    padding: 12px 25px;
+    background: #0077b5;
     color: white;
     text-decoration: none;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 600;
     border-radius: 2px;
 }
 
-.team-member { cursor: pointer; transition: 0.3s; }
-.team-member:hover { transform: scale(1.05); }
+/* --- Footer --- */
+.footer { padding: 80px 0; background: var(--primary-dark); color: var(--white); text-align: center; }
+.footer p { opacity: 0.6; font-size: 13px; }
 
-
+/* --- Responsive --- */
+@media (max-width: 992px) {
+    .team-grid { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 38px; }
+}
