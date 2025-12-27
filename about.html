@@ -11,7 +11,11 @@
 
 <header class="navbar">
     <div class="container nav-inner">
-        <div class="logo"><a href="index.html" class="logo-link"><img src="assets/images/DoubleU-logotype-24.png"></a></div>
+        <div class="logo">
+            <a href="index.html" class="logo-link">
+                <img src="assets/images/DoubleU-logotype-24.png" alt="DoubleU-Tech">
+            </a>
+        </div>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -31,9 +35,9 @@
         
         <div class="split">
             <div class="about-text">
-                <p style="margin-bottom: 20px;">DoubleU began with a vision rooted in the heart of its founder. With years of experience in the semiconductor industry, our founder was driven by a passion for life-changing technologies.</p>
-                <p style="margin-bottom: 20px;">Understanding Taiwan’s unique market, culture, and key players, we recognized the need to bridge the gap between global innovators and local markets.</p>
-                <div style="background: var(--grey-light); padding: 30px; border-left: 4px solid var(--accent);">
+                <p style="margin-bottom: 20px;">Double U began as a vision rooted in the heart of its founder. With years of experience in the semiconductor industry, the founder was driven by a passion for life-changing technologies and a desire to shape the world by commercializing innovations.</p>
+                <p style="margin-bottom: 20px;">Understanding Taiwan’s unique market, culture, processes, and key players, the founder recognized the need to bridge the gap between global innovators and local markets.</p>
+                <div style="background: var(--grey-light); padding: 30px; border-left: 4px solid var(--accent); margin-top: 30px;">
                     <p><strong>What "Double U" Means:</strong> Our name symbolizes representing foreign companies' presence in Taiwan and accelerating market penetration, effectively <strong>doubling their impact</strong>.</p>
                 </div>
             </div>
@@ -48,7 +52,7 @@
         <div class="section-header centered">
             <p class="overline">The Core Team</p>
             <h2>The Leadership Behind DoubleU</h2>
-            <p>Click on a leader to learn more about their background and expertise.</p>
+            <p style="margin-bottom: 40px;">Click on a leader to learn more about their background and expertise.</p>
         </div>
         
         <div class="team-grid">
@@ -83,12 +87,12 @@
     <div class="modal-content">
         <span class="close" onclick="closeModal('modal-bert')">&times;</span>
         <div class="modal-header">
-            <h3>Bert Sie</h3>
+            <h3>Bert Sie (薛博中)</h3>
             <p class="role">Managing Director</p>
         </div>
         <div class="modal-body">
             <p>Bert started the "Double U" concept in early 2022, providing marketing strategies for various companies. He is currently the Head of Sales & Business Development for Beammwave Taiwan. Prior to this role, Bert held various leadership positions at EDOM, a top 7 global IC distributor, where he established the first mass market business group, leading sales and marketing. Previously, he led product management teams for acoustic, networking, PC, and smartphone applications, assisting 5 startups from 0 to 1. He received an MBA degree from National Central University in Taiwan.</p>
-            <a href="https://www.linkedin.com/in/bertsie/" target="_blank" class="linkedin-link">View LinkedIn Profile</a>
+            <a href="https://www.linkedin.com/in/bert-sie-891a9350/" target="_blank" class="linkedin-link">View LinkedIn Profile</a>
         </div>
     </div>
 </div>
@@ -97,12 +101,12 @@
     <div class="modal-content">
         <span class="close" onclick="closeModal('modal-teresa')">&times;</span>
         <div class="modal-header">
-            <h3>Teresa Jhan</h3>
+            <h3>Teresa Jhan (詹惠捷)</h3>
             <p class="role">Principal</p>
         </div>
         <div class="modal-body">
             <p>Teresa, a seasoned 15-year veteran in the IoT industry, possesses a masterful grasp of total solutions, spanning cloud platforms, devices, and key components. Her work extends to international corporations, where she adeptly navigates communication among diverse stakeholders. With a keen eye on technology trends and insightful observations, Teresa’s consultative sales approach ensures tailored product demonstrations. Her solution-oriented mindset makes her an invaluable asset in the tech-savvy team.</p>
-            <a href="#" target="_blank" class="linkedin-link">View LinkedIn Profile</a>
+            <a href="https://www.linkedin.com/in/teresa-jhan-%E8%A9%B9%E6%83%A0%E6%8D%B7-31bb5910b/" target="_blank" class="linkedin-link">View LinkedIn Profile</a>
         </div>
     </div>
 </div>
@@ -121,20 +125,11 @@
     </div>
 </div>
 
-<script>
-    function openModal(id) { document.getElementById(id).style.display = "flex"; }
-    function closeModal(id) { document.getElementById(id).style.display = "none"; }
-    // 點擊視窗外部也可關閉
-    window.onclick = function(event) {
-        if (event.target.className === 'modal') { event.target.style.display = "none"; }
-    }
-</script>
-
 <section id="contact" class="section contact">
     <div class="container narrow">
         <div class="section-header centered">
             <p class="overline">Stay in the loop</p>
-            <h2>Partner With Double U Technology</h2>
+            <h2>Partner With DoubleU Technology</h2>
             <p>Let us help you transform your business vision into reality.</p>
         </div>
         <div class="custom-form-wrapper">
@@ -142,12 +137,16 @@
                 <div class="form-row">
                     <div class="form-group">
                         <label>Name</label>
-                        <input type="text" name="entry.685019771" placeholder="Full Name" required>
+                        <input type="text" name="name" placeholder="Full Name" required>
                     </div>
                     <div class="form-group">
                         <label>Email Address</label>
-                        <input type="email" name="entry.98934424" placeholder="email@company.com" required>
+                        <input type="email" name="email" placeholder="email@company.com" required>
                     </div>
+                </div>
+                <div class="form-group">
+                    <label>Message</label>
+                    <textarea name="message" rows="4" placeholder="How can we help your business?"></textarea>
                 </div>
                 <button type="submit" class="btn btn-dark" style="width:100%; border:none; cursor:pointer;">Submit Connect Request</button>
             </form>
@@ -164,6 +163,14 @@
         <p>&copy; 2025 DoubleU-Tech Advisory. All Rights Reserved.</p>
     </div>
 </footer>
+
+<script>
+    function openModal(id) { document.getElementById(id).style.display = "flex"; }
+    function closeModal(id) { document.getElementById(id).style.display = "none"; }
+    window.onclick = function(event) {
+        if (event.target.className === 'modal') { event.target.style.display = "none"; }
+    }
+</script>
 
 </body>
 </html>
