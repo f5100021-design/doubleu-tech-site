@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About US | DoubleU-Tech Advisory</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="container nav-inner">
+        <div class="logo"><a href="index.html" class="logo-link"><img src="assets/images/DoubleU-logotype-24.png"></a></div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="success-stories.html">Success Stories</a></li>
+                <li><a href="about.html" style="color:var(--accent)">About US</a></li>
+                <li><a href="#contact" class="nav-btn">Connect</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section class="section">
+    <div class="container">
+        <p class="overline">The Story of DoubleU</p>
+        <h2 style="font-size: 48px; margin-bottom: 40px;">Empowering Through Bridging The Gap</h2>
+        
+        <div class="split">
+            <div class="about-text">
+                <p style="margin-bottom: 20px;">DoubleU began with a vision rooted in the heart of its founder. With years of experience in the semiconductor industry, our founder was driven by a passion for life-changing technologies.</p>
+                <p style="margin-bottom: 20px;">Understanding Taiwan’s unique market, culture, and key players, we recognized the need to bridge the gap between global innovators and local markets.</p>
+                <div style="background: var(--grey-light); padding: 30px; border-left: 4px solid var(--accent);">
+                    <p><strong>What "Double U" Means:</strong> Our name symbolizes representing foreign companies' presence in Taiwan and accelerating market penetration, effectively <strong>doubling their impact</strong>.</p>
+                </div>
+            </div>
+            <div class="about-image-placeholder">
+                </div>
+        </div>
+    </div>
+</section>
+
+<section id="team" class="section" style="background: var(--grey-light);">
+    <div class="container">
+        <div class="section-header centered">
+            <p class="overline">The Core Team</p>
+            <h2>The Leadership Behind DoubleU</h2>
+            <p style="max-width: 700px; margin: 0 auto;">The spirit of DoubleU attracted like-minded individuals who share the same commitment to innovation and market transformation.</p>
+        </div>
+        
+        <div class="team-grid">
+            <div class="team-member">
+                <div class="member-photo">
+                    <img src="assets/images/Bert_Sie.png" alt="Bert Sie - Founder & Managing Director">
+                </div>
+                <h4>Bert Sie</h4>
+                <p class="role">Managing Director</p>
+                <p style="font-size: 13px; color: var(--text-secondary); padding: 0 20px;">Driven by a desire to shape the world by commercializing innovations.</p>
+            </div>
+            
+            <div class="team-member">
+                <div class="member-photo">
+                    <img src="assets/images/Teresa.JPG" alt="Teresa Jhan - Principal">
+                </div>
+                <h4>Teresa Jhan</h4>
+                <p class="role">Principal</p>
+                <p style="font-size: 13px; color: var(--text-secondary); padding: 0 20px;">Fostering collaboration and creativity to address evolving client needs.</p>
+            </div>
+            
+            <div class="team-member">
+                <div class="member-photo">
+                    <img src="assets/images/FRED_3_0.png" alt="Fred Chen - VP Channel & Distribution">
+                </div>
+                <h4>Fred Chen</h4>
+                <p class="role">VP Channel & Distribution</p>
+                <p style="font-size: 13px; color: var(--text-secondary); padding: 0 20px;">Expert in bridging technology and markets for global success.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="section contact">
+    <div class="container narrow">
+        <div class="section-header centered">
+            <p class="overline">Stay in the loop</p>
+            <h2>Partner With Double U Technology</h2>
+            <p>Let us help you transform your business vision into reality.</p>
+        </div>
+        <div class="custom-form-wrapper">
+            <form id="g-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" name="entry.685019771" placeholder="Full Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email Address</label>
+                        <input type="email" name="entry.98934424" placeholder="email@company.com" required>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-dark" style="width:100%; border:none; cursor:pointer;">Submit Connect Request</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container footer-inner">
+        <div class="footer-logo">
+            <img src="assets/images/DoubleU-logotype-27.png" alt="DoubleU">
+        </div>
+        <p>Taipei, Taiwan | info@doubleu-tech.com</p>
+        <p>&copy; 2025 DoubleU-Tech Advisory. All Rights Reserved.</p>
+    </div>
+</footer>
+
+</body>
+</html>
