@@ -1,4 +1,4 @@
-/* --- DoubleU-Tech 最終修復系統 --- */
+/* --- DoubleU-Tech 品牌顏色定義 --- */
 :root {
     --primary-dark: #0f2332;
     --accent: #eb611b;
@@ -7,79 +7,66 @@
     --white: #ffffff;
 }
 
+/* 基礎重設與全站字體 */
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Montserrat', sans-serif; line-height: 1.8; color: var(--text-main); background: var(--white); padding-top: 100px; }
+body { font-family: 'Montserrat', sans-serif; line-height: 1.6; color: var(--text-main); background: var(--white); padding-top: 100px; overflow-x: hidden; }
 .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; position: relative; }
 
-/* --- Navbar (全站同步) --- */
-.navbar { height: 100px; background: #fff; position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid #f0f0f0; display: flex; align-items: center; }
+/* --- Navbar (解決手機選單問題) --- */
+.navbar { height: 100px; background: #fff; position: fixed; width: 100%; top: 0; z-index: 9999; border-bottom: 1px solid #f0f0f0; display: flex; align-items: center; }
 .nav-inner { display: flex; justify-content: space-between; align-items: center; width: 100%; }
-.logo img { height: 80px; width: auto; }
+.logo img { height: 75px; width: auto; }
+.menu-toggle { display: none; flex-direction: column; cursor: pointer; z-index: 10001; }
+.menu-toggle span { width: 25px; height: 3px; background-color: var(--primary-dark); margin: 2px 0; transition: 0.4s; }
+
 nav ul { list-style: none; display: flex; align-items: center; }
 nav ul li { margin-left: 35px; }
-nav ul li a { text-decoration: none; color: var(--primary-dark); font-size: 13px; font-weight: 700; text-transform: uppercase; }
+nav ul li a { text-decoration: none; color: var(--primary-dark); font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
 .nav-btn { border: 2px solid var(--accent); color: var(--accent) !important; padding: 10px 22px; border-radius: 2px; }
 
-/* --- Hero 按鈕深度修復 (解決並排問題) --- */
-.hero { padding: 140px 0 110px; background-color: var(--grey-light); }
-.hero-btns { 
-    display: flex !important; 
-    gap: 20px !important; 
-    margin-top: 40px !important; 
-    justify-content: flex-start !important;
-}
+/* --- Hero Section (解決 index 中間被吃掉問題) --- */
+.hero { padding: 120px 0; background-color: var(--grey-light); position: relative; z-index: 10; }
+.hero h1 { font-family: 'Playfair Display', serif; font-size: 56px; line-height: 1.2; color: var(--primary-dark); margin: 30px 0; font-weight: 700; }
+.hero-btns { display: flex !important; gap: 20px !important; margin-top: 50px !important; }
+
 .btn { 
-    min-width: 180px !important; /* 確保按鈕寬度均衡 */
-    padding: 18px 0 !important; 
-    text-align: center !important;
-    text-decoration: none !important; 
-    font-weight: 700 !important; 
-    display: inline-block !important; 
-    font-size: 14px !important; 
-    text-transform: uppercase !important;
-    letter-spacing: 2px !important;
-    border-radius: 2px !important;
-    transition: 0.3s !important;
+    min-width: 180px !important; padding: 20px 0 !important; text-align: center !important;
+    text-decoration: none !important; font-weight: 700 !important; display: inline-block !important; 
+    font-size: 13px !important; text-transform: uppercase !important; letter-spacing: 2px !important;
+    border-radius: 2px !important; transition: 0.3s !important;
 }
 .btn-dark { background: var(--primary-dark) !important; color: var(--white) !important; border: 1px solid var(--primary-dark) !important; }
 .btn-outline { background: transparent !important; border: 1px solid var(--primary-dark) !important; color: var(--primary-dark) !important; }
-.btn:hover { background: var(--accent) !important; border-color: var(--accent) !important; color: #fff !important; transform: translateY(-3px) !important; }
 
-/* --- Insights 滑動功能修正 --- */
+/* --- Insights 滑動區塊 --- */
 .news-slider-wrapper { position: relative; display: flex; align-items: center; margin-top: 50px; }
-.news-grid { 
-    display: flex; gap: 30px; overflow-x: auto; scroll-behavior: smooth; 
-    scrollbar-width: none; padding: 20px 5px; width: 100%;
-}
+.news-grid { display: flex; gap: 30px; overflow-x: auto; scroll-behavior: smooth; scrollbar-width: none; width: 100%; padding: 20px 0; }
 .news-grid::-webkit-scrollbar { display: none; }
-.news-card { 
-    min-width: calc(33.333% - 20px); 
-    background: #fff; border: 1px solid #eee; text-decoration: none; color: inherit; 
-    display: flex; flex-direction: column; transition: 0.3s; border-radius: 4px; overflow: hidden; 
-}
-.news-image { width: 100%; height: 200px; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 700; padding: 20px; font-size: 18px; }
-
-.slide-btn { 
-    width: 50px; height: 50px; background: #fff; border: 1px solid #ddd; border-radius: 50%; 
-    cursor: pointer; position: absolute; z-index: 10; font-size: 20px; 
-    display: flex; align-items: center; justify-content: center; top: 50%; transform: translateY(-50%); 
-}
+.news-card { min-width: calc(33.333% - 20px); background: #fff; border: 1px solid #eee; text-decoration: none; color: inherit; border-radius: 4px; overflow: hidden; transition: 0.3s; }
+.slide-btn { width: 50px; height: 50px; background: #fff; border: 1px solid #ddd; border-radius: 50%; cursor: pointer; position: absolute; z-index: 20; display: flex; align-items: center; justify-content: center; top: 50%; transform: translateY(-50%); }
 .prev-btn { left: -25px; } .next-btn { right: -25px; }
 
-/* --- About Team Grid 深度修正 (確保圓形不跑版) --- */
-.team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 60px; text-align: center; }
-.member-photo { width: 220px !important; height: 220px !important; border-radius: 50% !important; margin: 0 auto 25px !important; overflow: hidden !important; border: 1px solid #eee !important; }
+/* --- About Team Section (解決照片跑版與彈窗失效) --- */
+.section { padding: 120px 0; width: 100%; position: relative; z-index: 1; }
+.team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 80px; text-align: center; }
+.member-photo { width: 220px !important; height: 220px !important; border-radius: 50% !important; margin: 0 auto 25px !important; overflow: hidden !important; border: 2px solid #eee !important; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
 .member-photo img { width: 100% !important; height: 100% !important; object-fit: cover !important; display: block !important; }
-.modal { display: none !important; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background: rgba(15, 35, 50, 0.9); align-items: center; justify-content: center; }
 
-/* Footer */
-.footer { padding: 80px 0; background: var(--primary-dark); color: #fff; text-align: center; }
-.footer-logo img { height: 45px !important; filter: brightness(0) invert(1); margin-bottom: 25px; }
+.modal { display: none !important; position: fixed; z-index: 10002; left: 0; top: 0; width: 100%; height: 100%; background: rgba(15, 35, 50, 0.95); align-items: center; justify-content: center; }
+.modal-content { background: #fff; padding: 60px; width: 90%; max-width: 650px; border-radius: 4px; position: relative; }
+.close { position: absolute; right: 30px; top: 25px; font-size: 40px; cursor: pointer; color: #ccc; }
 
+/* --- Footer --- */
+.footer { padding: 100px 0; background: var(--primary-dark); color: #fff; text-align: center; }
+.footer-logo img { height: 40px !important; filter: brightness(0) invert(1); margin-bottom: 30px; }
+
+/* RWD */
 @media (max-width: 992px) {
+    .menu-toggle { display: flex; }
+    nav { position: fixed; top: 100px; right: -100%; width: 100%; height: calc(100vh - 100px); background: #fff; transition: 0.4s; z-index: 10000; }
+    nav.active { right: 0; }
+    nav ul { flex-direction: column; padding: 40px; }
+    nav ul li { margin: 20px 0; margin-left: 0; }
+    .hero-btns, .team-grid { flex-direction: column; grid-template-columns: 1fr; }
     .news-card { min-width: 85%; }
-    .hero-btns { flex-direction: column; }
-    .btn { width: 100% !important; }
-    .team-grid { grid-template-columns: 1fr; }
-    .slide-btn { display: none; }
 }
