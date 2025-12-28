@@ -27,7 +27,6 @@
     <div class="container">
         <p style="color:var(--accent); text-align:center; font-weight:700; letter-spacing:3px;">THE CORE TEAM</p>
         <h2 style="text-align:center; font-size:42px; margin-bottom:50px;">The Leadership Behind DoubleU</h2>
-        
         <div class="team-grid">
             <div class="team-member" onclick="openModal('modal-bert')">
                 <div class="member-photo"><img src="assets/images/Bert_Sie.png" alt="Bert Sie"></div>
@@ -48,31 +47,9 @@
     </div>
 </section>
 
-<div id="modal-bert" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal('modal-bert')">&times;</span>
-        <h3>Bert Sie</h3>
-        <p style="margin-top:20px;">Bert started the "Double U" concept in early 2022. He is currently the Head of Sales & Business Development for Beammwave Taiwan.</p>
-        <a href="https://www.linkedin.com/in/bert-sie-891a9350/" target="_blank" class="btn btn-dark" style="margin-top:20px; padding:12px 25px !important; font-size:12px !important;">View LinkedIn</a>
-    </div>
-</div>
-
-<div id="modal-teresa" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal('modal-teresa')">&times;</span>
-        <h3>Teresa Jhan</h3>
-        <p style="margin-top:20px;">Teresa is a 15-year veteran in the IoT industry, possessing a masterful grasp of total solutions spanning cloud platforms.</p>
-        <a href="https://www.linkedin.com/in/teresa-jhan-%E8%A9%B9%E6%83%A0%E6%8D%B7-31bb5910b/" target="_blank" class="btn btn-dark" style="margin-top:20px; padding:12px 25px !important; font-size:12px !important;">View LinkedIn</a>
-    </div>
-</div>
-
-<div id="modal-fred" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal('modal-fred')">&times;</span>
-        <h3>Fred Chen</h3>
-        <p style="margin-top:20px;">Fred Chen has over two decades of expertise in the IC supply chain, leading Realtek's engagements with global brands.</p>
-    </div>
-</div>
+<div id="modal-bert" class="modal"><div class="modal-content"><span style="cursor:pointer; float:right;" onclick="closeModal('modal-bert')">&times;</span><h3>Bert Sie</h3><p style="margin-top:20px;">Bert started the "Double U" concept in early 2022. He is currently the Head of Sales & BD for Beammwave Taiwan.</p></div></div>
+<div id="modal-teresa" class="modal"><div class="modal-content"><span style="cursor:pointer; float:right;" onclick="closeModal('modal-teresa')">&times;</span><h3>Teresa Jhan</h3><p style="margin-top:20px;">Teresa is a 15-year IoT veteran, possessing a masterful grasp of cloud platforms.</p></div></div>
+<div id="modal-fred" class="modal"><div class="modal-content"><span style="cursor:pointer; float:right;" onclick="closeModal('modal-fred')">&times;</span><h3>Fred Chen</h3><p style="margin-top:20px;">Fred has over two decades of expertise in the IC supply chain.</p></div></div>
 
 <footer class="footer">
     <div class="container">
@@ -85,6 +62,5 @@
     function openModal(id) { document.getElementById(id).style.setProperty('display', 'flex', 'important'); document.body.style.overflow = "hidden"; }
     function closeModal(id) { document.getElementById(id).style.setProperty('display', 'none', 'important'); document.body.style.overflow = "auto"; }
 </script>
-
 </body>
 </html>
