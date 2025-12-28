@@ -1,4 +1,4 @@
-/* --- DoubleU-Tech 核心視覺系統 --- */
+/* --- DoubleU-Tech 最終修復系統 --- */
 :root {
     --primary-dark: #0f2332;
     --accent: #eb611b;
@@ -11,48 +11,66 @@
 body { font-family: 'Montserrat', sans-serif; line-height: 1.8; color: var(--text-main); background: var(--white); padding-top: 100px; }
 .container { max-width: 1200px; margin: 0 auto; padding: 0 40px; position: relative; }
 
-/* --- Navbar (所有頁面通用) --- */
+/* --- Navbar (全站同步) --- */
 .navbar { height: 100px; background: #fff; position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid #f0f0f0; display: flex; align-items: center; }
 .nav-inner { display: flex; justify-content: space-between; align-items: center; width: 100%; }
 .logo img { height: 80px; width: auto; }
 nav ul { list-style: none; display: flex; align-items: center; }
 nav ul li { margin-left: 35px; }
-nav ul li a { text-decoration: none; color: var(--primary-dark); font-size: 13px; font-weight: 700; text-transform: uppercase; transition: 0.3s; }
-nav ul li a:hover { color: var(--accent); }
+nav ul li a { text-decoration: none; color: var(--primary-dark); font-size: 13px; font-weight: 700; text-transform: uppercase; }
 .nav-btn { border: 2px solid var(--accent); color: var(--accent) !important; padding: 10px 22px; border-radius: 2px; }
 
-/* --- Hero 按鈕強力修復 (解決並排問題) --- */
+/* --- Hero 按鈕深度修復 (解決並排問題) --- */
 .hero { padding: 140px 0 110px; background-color: var(--grey-light); }
-.hero-btns { display: flex !important; gap: 20px !important; margin-top: 40px !important; }
+.hero-btns { 
+    display: flex !important; 
+    gap: 20px !important; 
+    margin-top: 40px !important; 
+    justify-content: flex-start !important;
+}
 .btn { 
-    padding: 18px 35px !important; text-decoration: none !important; font-weight: 700 !important; 
-    display: inline-block !important; font-size: 14px !important; text-transform: uppercase !important;
-    letter-spacing: 2px !important; border-radius: 2px !important; text-align: center !important; transition: 0.3s !important;
+    min-width: 180px !important; /* 確保按鈕寬度均衡 */
+    padding: 18px 0 !important; 
+    text-align: center !important;
+    text-decoration: none !important; 
+    font-weight: 700 !important; 
+    display: inline-block !important; 
+    font-size: 14px !important; 
+    text-transform: uppercase !important;
+    letter-spacing: 2px !important;
+    border-radius: 2px !important;
+    transition: 0.3s !important;
 }
 .btn-dark { background: var(--primary-dark) !important; color: var(--white) !important; border: 1px solid var(--primary-dark) !important; }
 .btn-outline { background: transparent !important; border: 1px solid var(--primary-dark) !important; color: var(--primary-dark) !important; }
 .btn:hover { background: var(--accent) !important; border-color: var(--accent) !important; color: #fff !important; transform: translateY(-3px) !important; }
 
-/* --- Insights 滑動文章區塊 --- */
+/* --- Insights 滑動功能修正 --- */
 .news-slider-wrapper { position: relative; display: flex; align-items: center; margin-top: 50px; }
-.news-grid { display: flex; gap: 30px; overflow-x: auto; scroll-behavior: smooth; scrollbar-width: none; padding: 20px 0; }
+.news-grid { 
+    display: flex; gap: 30px; overflow-x: auto; scroll-behavior: smooth; 
+    scrollbar-width: none; padding: 20px 5px; width: 100%;
+}
 .news-grid::-webkit-scrollbar { display: none; }
-.news-card { min-width: calc(33.333% - 20px); background: #fff; border: 1px solid #eee; text-decoration: none; color: inherit; display: flex; flex-direction: column; transition: 0.3s; border-radius: 4px; overflow: hidden; }
-.news-card:hover { transform: translateY(-10px); box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-.news-image { width: 100%; height: 200px; display: flex; align-items: center; justify-content: center; color: #fff; text-align: center; font-weight: 700; padding: 20px; font-size: 18px; }
+.news-card { 
+    min-width: calc(33.333% - 20px); 
+    background: #fff; border: 1px solid #eee; text-decoration: none; color: inherit; 
+    display: flex; flex-direction: column; transition: 0.3s; border-radius: 4px; overflow: hidden; 
+}
+.news-image { width: 100%; height: 200px; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 700; padding: 20px; font-size: 18px; }
 
-/* 左右箭頭 */
-.slide-btn { width: 50px; height: 50px; background: #fff; border: 1px solid #ddd; border-radius: 50%; cursor: pointer; position: absolute; z-index: 10; font-size: 20px; display: flex; align-items: center; justify-content: center; top: 50%; transform: translateY(-50%); transition: 0.3s; }
-.slide-btn:hover { background: var(--accent); color: #fff; border-color: var(--accent); }
+.slide-btn { 
+    width: 50px; height: 50px; background: #fff; border: 1px solid #ddd; border-radius: 50%; 
+    cursor: pointer; position: absolute; z-index: 10; font-size: 20px; 
+    display: flex; align-items: center; justify-content: center; top: 50%; transform: translateY(-50%); 
+}
 .prev-btn { left: -25px; } .next-btn { right: -25px; }
 
-/* --- About Team Grid (解決照片過大與 Modal 顯現問題) --- */
+/* --- About Team Grid 深度修正 (確保圓形不跑版) --- */
 .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 60px; text-align: center; }
-.member-photo { width: 200px; height: 200px; border-radius: 50%; margin: 0 auto 25px; overflow: hidden; border: 1px solid #eee; }
-.member-photo img { width: 100%; height: 100%; object-fit: cover; }
+.member-photo { width: 220px !important; height: 220px !important; border-radius: 50% !important; margin: 0 auto 25px !important; overflow: hidden !important; border: 1px solid #eee !important; }
+.member-photo img { width: 100% !important; height: 100% !important; object-fit: cover !important; display: block !important; }
 .modal { display: none !important; position: fixed; z-index: 9999; left: 0; top: 0; width: 100%; height: 100%; background: rgba(15, 35, 50, 0.9); align-items: center; justify-content: center; }
-.modal-content { background: #fff; padding: 50px; width: 90%; max-width: 650px; border-radius: 4px; position: relative; }
-.close { position: absolute; right: 25px; top: 20px; font-size: 35px; cursor: pointer; color: #999; }
 
 /* Footer */
 .footer { padding: 80px 0; background: var(--primary-dark); color: #fff; text-align: center; }
@@ -60,6 +78,8 @@ nav ul li a:hover { color: var(--accent); }
 
 @media (max-width: 992px) {
     .news-card { min-width: 85%; }
-    .slide-btn { display: none; }
+    .hero-btns { flex-direction: column; }
+    .btn { width: 100% !important; }
     .team-grid { grid-template-columns: 1fr; }
+    .slide-btn { display: none; }
 }
