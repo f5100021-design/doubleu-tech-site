@@ -194,6 +194,7 @@
             transition: 0.3s;
         }
         .btn-submit-styled:hover { background-color: var(--accent); }
+        .btn-submit-styled:disabled { background-color: #ccc; cursor: not-allowed; }
 
         /* --- 5. Footer --- */
         .footer {
@@ -262,22 +263,22 @@
             <p>Ready to expand? Send us a message and we will contact you shortly.</p>
         </div>
 
-        <form class="contact-form-styled" action="#" method="POST">
+        <form id="contactForm" class="contact-form-styled">
             <div class="form-group">
                 <label for="name">Name</label>
-                <input type="text" id="name" placeholder="Full Name" required>
+                <input type="text" id="name" name="name" placeholder="Full Name" required>
             </div>
             <div class="form-group">
                 <label for="email">Email Address</label>
-                <input type="email" id="email" placeholder="email@company.com" required>
+                <input type="email" id="email" name="email" placeholder="email@company.com" required>
             </div >
             <div class="form-group form-full-width">
                 <label for="subject">Subject</label>
-                <input type="text" id="subject" placeholder="Inquiry Subject">
+                <input type="text" id="subject" name="subject" placeholder="Inquiry Subject" required>
             </div>
             <div class="form-group form-full-width">
                 <label for="message">Message</label>
-                <textarea id="message" placeholder="How can we help your business?" required></textarea>
+                <textarea id="message" name="message" placeholder="How can we help your business?" required></textarea>
             </div>
             <div class="form-full-width" style="margin-top: 20px;">
                 <button type="submit" class="btn-submit-styled">Submit Inquiry</button>
@@ -293,10 +294,53 @@
     </div>
 </footer>
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 <script>
+    // 導覽列切換功能
     function toggleMenu() {
         document.getElementById('nav-menu').classList.toggle('active');
     }
+
+    // 2. Google Form 傳送邏輯
+    $(document).ready(function() {
+        $('#contactForm').submit(function(e) {
+            e.preventDefault(); // 防止頁面跳轉
+
+            // 為了好的 UX，點擊後按鈕會變色並顯示發送中
+            var submitBtn = $('.btn-submit-styled');
+            var originalText = submitBtn.text();
+            submitBtn.text('Sending...').prop('disabled', true);
+
+            var formData = {
+                'entry.685019771': $('#name').val(),
+                'entry.98934424': $('#email').val(),
+                'entry.1262646125': $('#subject').val(),
+                'entry.512682809': $('#message').val()
+            };
+
+            $.ajax({
+                url: 'https://docs.google.com/forms/u/0/d/e/1FAIpQLSffelARBEmcZqGrMwYvy4R2h3z-vUEoq-bb9_Pmozz7n_GLGg/formResponse',
+                type: 'POST',
+                data: formData,
+                dataType: 'xml', // Google Forms 跨域處理需要設為 xml
+                statusCode: {
+                    0: function() {
+                        // 狀態碼 0 代表成功送出 (因 CORS 限制無法讀取回傳值，但實際上已送達)
+                        alert('Thank you! Your message has been sent successfully.');
+                        $('#contactForm')[0].reset(); // 清空表單
+                        submitBtn.text(originalText).prop('disabled', false); // 恢復按鈕
+                    },
+                    200: function() {
+                        // 狀態碼 200 代表成功
+                        alert('Thank you! Your message has been sent successfully.');
+                        $('#contactForm')[0].reset();
+                        submitBtn.text(originalText).prop('disabled', false);
+                    }
+                }
+            });
+        });
+    });
 </script>
 </body>
 </html>
