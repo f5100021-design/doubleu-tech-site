@@ -11,13 +11,14 @@
 <header class="navbar">
     <div class="container nav-inner">
         <div class="logo"><a href="index.html"><img src="assets/images/DoubleU-logotype-24.png"></a></div>
-        <nav>
+        <div class="menu-toggle" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+        <nav id="nav-menu">
             <ul>
                 <li><a href="index.html" style="color:var(--accent)">Home</a></li>
                 <li><a href="services.html">Services</a></li>
                 <li><a href="insights.html">Insights</a></li>
                 <li><a href="about.html">About US</a></li>
-                <li><a href="#contact" class="nav-btn">Connect</a></li>
+                <li><a href="#contact" class="nav-btn" onclick="toggleMenu()">Connect</a></li>
             </ul>
         </nav>
     </div>
@@ -25,10 +26,9 @@
 
 <section class="hero">
     <div class="container">
-        <p style="color:var(--accent); font-weight:700; letter-spacing:5px; text-transform:uppercase; margin-bottom:20px;">Think Globally, Act Locally</p>
-        <h1 style="font-size:54px; margin-bottom:30px; color:var(--primary-dark);">Empowering Through Bridging The Gap.</h1>
-        <p style="font-size:19px; color:#666; max-width:650px; margin-bottom:40px;">Driving Unity, Zero To One. We specialize in helping technology innovators and global corporates navigate and thrive in the Taiwan and US markets.</p>
-        
+        <p style="color:var(--accent); font-weight:700; letter-spacing:5px; text-transform:uppercase;">Think Globally, Act Locally</p>
+        <h1>Empowering Through Bridging The Gap.</h1>
+        <p style="font-size:19px; color:#666; max-width:680px; margin-bottom:40px;">Driving Unity, Zero To One. We specialize in helping technology innovators and global corporates navigate and thrive in the Taiwan and US markets.</p>
         <div class="hero-btns">
             <a href="about.html" class="btn btn-dark">Our Story</a>
             <a href="#contact" class="btn btn-outline">Start a Project</a>
@@ -43,5 +43,11 @@
     </div>
 </footer>
 
+<script>
+    function toggleMenu() {
+        document.getElementById('nav-menu').classList.toggle('active');
+        document.querySelector('.menu-toggle').classList.toggle('open');
+    }
+</script>
 </body>
 </html>
