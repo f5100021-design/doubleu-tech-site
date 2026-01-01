@@ -8,9 +8,28 @@
     <link rel="stylesheet" href="style.css">
     
     <style>
-        /* 專屬 Services 頁面的 CSS */
-        
-        /* 展開動畫樣式 */
+        /* --- 1. 漢堡選單按鈕樣式 (這段是您原本缺少的) --- */
+        .menu-toggle {
+            display: none; /* 電腦版隱藏 */
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            cursor: pointer;
+            z-index: 1001; /* 確保在最上層 */
+        }
+
+        /* 定義三條線的樣子 */
+        .menu-toggle span {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary-dark, #333); /* 使用深色，若變數讀不到則用 #333 */
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        /* --- 2. 頁面既有樣式 --- */
         details {
             border-bottom: 1px solid #eee;
             padding: 20px 0;
@@ -30,10 +49,8 @@
             padding: 10px 0;
         }
         
-        /* 隱藏預設三角形 */
         summary::-webkit-details-marker { display: none; }
         
-        /* 自訂加號 */
         summary::after {
             content: '+';
             font-size: 30px;
@@ -42,7 +59,6 @@
             transition: transform 0.3s;
         }
         
-        /* 展開時變減號 */
         details[open] summary::after { 
             content: '-'; 
             transform: rotate(180deg);
@@ -50,7 +66,7 @@
         
         .details-content {
             padding: 20px 0;
-            color: #555; /* 使用深灰增加閱讀性 */
+            color: #555;
             font-weight: 400;
             line-height: 1.8;
             font-family: 'Montserrat', sans-serif;
@@ -81,23 +97,21 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* --- RWD 手機版設定 --- */
+        /* --- 3. 手機版 RWD 設定 --- */
         @media (max-width: 768px) {
             
-            /* 1. 確保選單按鈕出現 */
+            /* 顯示漢堡選單按鈕 */
             .menu-toggle { 
-                display: block; 
-                cursor: pointer;
+                display: flex; 
             } 
             
-            /* 2. 手機版字體調整 */
             summary { font-size: 20px; }
 
-            /* 3. 手機選單核心 CSS (補強部分) */
+            /* 選單本體設定 */
             #nav-menu {
                 display: none; /* 預設隱藏 */
                 position: absolute;
-                top: 70px; /* 依照 header 高度調整 */
+                top: 80px; /* 如果 header 比較高，請調整這裡 */
                 left: 0;
                 width: 100%;
                 background-color: #fff;
@@ -105,9 +119,10 @@
                 padding: 20px 0;
                 flex-direction: column;
                 z-index: 1000;
+                border-top: 1px solid #eee;
             }
 
-            /* 當有 .active class 時顯示 */
+            /* 加上 active class 後顯示 */
             #nav-menu.active {
                 display: flex;
             }
@@ -117,11 +132,14 @@
                 width: 100%;
                 align-items: center;
                 gap: 20px;
+                padding: 0;
+                margin: 0;
             }
 
             #nav-menu li {
                 width: 100%;
                 text-align: center;
+                list-style: none;
             }
         }
     </style>
@@ -132,7 +150,11 @@
     <div class="container nav-inner">
         <div class="logo"><a href="index.html" class="logo-link"><img src="assets/images/DoubleU-logotype-24.png"></a></div>
         
-        <div class="menu-toggle" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
         
         <nav id="nav-menu">
             <ul>
