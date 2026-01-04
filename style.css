@@ -1,6 +1,6 @@
 /* =========================================
-   DoubleU-Tech 最終完美版樣式表
-   更新項目：手機排版優化、按鈕橘色特效、Footer修正
+   DoubleU-Tech 最終修復版樣式表 (Final Fixed)
+   修正項目：Connect按鈕變色、手機排版、Footer圖片
    ========================================= */
 
 /* --- 1. 變數與全站重設 --- */
@@ -45,7 +45,7 @@ h1, h2, h3, h4 {
     color: var(--primary-dark); 
 }
 
-/* --- 2. 按鈕系統 (修復 Hover 變橘色) --- */
+/* --- 2. 按鈕系統 --- */
 .btn {
     display: inline-block;
     padding: 12px 30px;
@@ -60,27 +60,26 @@ h1, h2, h3, h4 {
     text-align: center;
 }
 
-/* 實心按鈕 */
+/* 實心按鈕 (深藍底 -> 橘底) */
 .btn-primary {
     background-color: var(--primary-dark);
     color: var(--white);
     border-color: var(--primary-dark);
 }
 .btn-primary:hover {
-    background-color: var(--accent);  /* 懸浮變橘色 */
+    background-color: var(--accent);
     border-color: var(--accent);
     transform: translateY(-2px);
 }
 
-/* 線框按鈕 (Meet The Team 用這個) */
+/* 線框按鈕 (深藍框 -> 橘底) - 用於 "Meet The Team" */
 .btn-outline {
     background-color: transparent;
     color: var(--primary-dark);
     border-color: var(--primary-dark);
 }
-/* 這裡修改：原本變深藍，現在改為變橘色 */
 .btn-outline:hover {
-    background-color: var(--accent); 
+    background-color: var(--accent); /* 變橘色 */
     border-color: var(--accent);
     color: var(--white);
     transform: translateY(-2px);
@@ -122,13 +121,17 @@ h1, h2, h3, h4 {
 #nav-menu a:hover::after, #nav-menu a.active::after { width: 100%; }
 #nav-menu a:hover, #nav-menu a.active { color: var(--accent); }
 
+/* --- [關鍵修正] 右上角 Connect 按鈕 --- */
 .nav-btn-highlight {
     padding: 8px 24px !important;
     border: 1px solid var(--primary-dark) !important;
     border-radius: var(--radius) !important;
+    transition: all 0.3s ease !important;
 }
 .nav-btn-highlight:hover {
-    background: var(--primary-dark); color: var(--white) !important;
+    background: var(--accent) !important;      /* 背景變橘色 */
+    border-color: var(--accent) !important;    /* 邊框變橘色 */
+    color: var(--white) !important;            /* 文字變白色 */
 }
 .nav-btn-highlight::after { display: none !important; }
 
@@ -263,7 +266,7 @@ h1, h2, h3, h4 {
 .close-modal:hover { color: var(--primary-dark); }
 @keyframes fadeIn { from {opacity: 0; transform: translateY(20px);} to {opacity: 1; transform: translateY(0);} }
 
-/* --- 9. Footer (修復版) --- */
+/* --- 9. Footer --- */
 .footer { 
     background: var(--primary-dark); 
     color: rgba(255,255,255,0.6); 
@@ -288,12 +291,12 @@ h1, h2, h3, h4 {
 }
 
 @media (max-width: 768px) {
-    /* 1. 導覽列與選單修正 */
+    /* 1. 導覽列與選單 */
     .menu-toggle { display: flex; }
     #nav-menu {
         display: none; 
         position: absolute; 
-        top: 100%;  /* 緊貼 Header 下方 */
+        top: 100%;  
         left: 0; 
         width: 100%;
         background: var(--white); 
@@ -302,22 +305,22 @@ h1, h2, h3, h4 {
         border-top: 1px solid #eee;
     }
     #nav-menu.active { display: block; }
-    #nav-menu ul { flex-direction: column; align-items: stretch; gap: 10px; } /* 改為 stretch 讓按鈕填滿 */
+    #nav-menu ul { flex-direction: column; align-items: stretch; gap: 10px; }
     #nav-menu li { width: 100%; text-align: center; }
-    #nav-menu a { display: block; padding: 12px 0; font-size: 16px; } /* 加大點擊範圍 */
+    #nav-menu a { display: block; padding: 12px 0; font-size: 16px; }
     .nav-btn-highlight { display: block; text-align: center; margin-top: 10px; }
     
-    /* 2. Hero 區塊修正 (解決字體被擠壓、留白過多) */
+    /* 2. Hero 區塊 */
     .hero { 
-        padding: 100px 0 60px; /* 縮小上下內距 */
+        padding: 100px 0 60px; 
     }
     .hero h1 { font-size: 32px; margin: 15px 0; }
     .hero p { font-size: 16px; margin-bottom: 30px; }
     
-    /* 3. 按鈕排列修正 (解決黏在一起) */
+    /* 3. 按鈕排列 */
     .hero-btns { 
         flex-direction: column; 
-        gap: 15px; /* 增加垂直間距 */
+        gap: 15px; 
         padding: 0 20px;
     }
     .btn { 
@@ -326,11 +329,9 @@ h1, h2, h3, h4 {
         text-align: center; 
     }
     
-    /* 4. 內頁卡片修正 */
+    /* 4. 內頁修正 */
     .service-detailed-card { flex-direction: column; }
     .card-icon-col { padding: 30px 0 0 30px; justify-content: flex-start; }
     .card-content { padding: 20px 30px 40px; }
-    
-    /* 5. 彈窗優化 */
     .modal-content { padding: 30px 20px; width: 95%; }
 }
