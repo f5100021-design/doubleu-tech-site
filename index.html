@@ -9,7 +9,8 @@
     <meta name="keywords" content="Double U, Business Development, Semiconductor, Taiwan Tech">
     
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css"> </head>
+    <link rel="stylesheet" href="style.css"> 
+</head>
 <body>
 
 <header class="navbar">
@@ -197,6 +198,18 @@
         document.getElementById('nav-menu').classList.toggle('active');
     }
 
+    // 新增：點擊選單內的連結後，自動關閉選單
+    document.addEventListener("DOMContentLoaded", function() {
+        const menuLinks = document.querySelectorAll('#nav-menu a');
+        const navMenu = document.getElementById('nav-menu');
+
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+    });
+
     function handleFormSubmit() {
         var btn = document.querySelector('button[type="submit"]');
         var originalText = btn.innerText;
@@ -218,6 +231,3 @@
 
 </body>
 </html>
-
-
-
