@@ -1,12 +1,12 @@
 /* =========================================
-   DoubleU-Tech 最終樣式表 (Mobile Touch Optimized)
-   更新項目：新增 :active 狀態，讓手機點擊時有橘色回饋
+   DoubleU-Tech 最終完整版樣式表
+   更新：針對手機按鈕顏色進行強制修正 (!important)
    ========================================= */
 
 /* --- 1. 變數與全站重設 --- */
 :root {
-    --primary-dark: #0f2332;
-    --accent: #eb611b;
+    --primary-dark: #0f2332;       /* 深藍 */
+    --accent: #eb611b;             /* 橘色 (強調色) */
     --accent-light: rgba(235, 97, 27, 0.1);
     --grey-light: #f9f9f9;
     --grey-bg: #f4f6f8;
@@ -45,7 +45,7 @@ h1, h2, h3, h4 {
     color: var(--primary-dark); 
 }
 
-/* --- 2. 按鈕系統 (已加入觸控回饋) --- */
+/* --- 2. 按鈕系統 (強制橘色修正) --- */
 .btn {
     display: inline-block;
     padding: 12px 30px;
@@ -55,22 +55,24 @@ h1, h2, h3, h4 {
     text-transform: uppercase;
     letter-spacing: 1px;
     cursor: pointer;
-    transition: all 0.2s ease; /* 加快一點反應速度 */
+    transition: all 0.2s ease;
     border: 2px solid transparent;
     text-align: center;
 }
 
-/* 實心按鈕 */
+/* 實心按鈕 (Our Solutions, Submit) */
 .btn-primary {
     background-color: var(--primary-dark);
     color: var(--white);
     border-color: var(--primary-dark);
 }
-/* 加入 :active 讓手機按下去變色 */
+
+/* 強制手機點擊與滑鼠懸浮都變橘色 */
 .btn-primary:hover, 
 .btn-primary:active {
-    background-color: var(--accent);
-    border-color: var(--accent);
+    background-color: var(--accent) !important;
+    border-color: var(--accent) !important;
+    color: var(--white) !important;
     transform: translateY(-2px);
 }
 
@@ -80,23 +82,24 @@ h1, h2, h3, h4 {
     color: var(--primary-dark);
     border-color: var(--primary-dark);
 }
-/* 加入 :active 讓手機按下去變色 */
+
+/* 強制手機點擊與滑鼠懸浮都變橘色 */
 .btn-outline:hover, 
 .btn-outline:active {
-    background-color: var(--accent);
-    border-color: var(--accent);
-    color: var(--white);
+    background-color: var(--accent) !important;
+    border-color: var(--accent) !important;
+    color: var(--white) !important;
     transform: translateY(-2px);
 }
 
-/* 文字連結按鈕 */
+/* 文字連結按鈕 (Read More) */
 .read-more-btn {
     font-size: 13px; font-weight: 700; text-transform: uppercase;
     color: var(--primary-dark); display: inline-flex; align-items: center; gap: 5px; cursor: pointer;
 }
 .read-more-btn:hover, 
 .read-more-btn:active { 
-    color: var(--accent); gap: 8px; 
+    color: var(--accent) !important; gap: 8px; 
 }
 
 /* 區塊標題 */
@@ -125,18 +128,16 @@ h1, h2, h3, h4 {
     content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px;
     background: var(--accent); transition: width 0.3s;
 }
-/* 加入 :active */
 #nav-menu a:hover::after, #nav-menu a:active::after, #nav-menu a.active::after { width: 100%; }
 #nav-menu a:hover, #nav-menu a:active, #nav-menu a.active { color: var(--accent); }
 
-/* 右上角 Connect 按鈕 */
+/* 右上角 Connect 按鈕 (原本就正確，保持 !important) */
 .nav-btn-highlight {
     padding: 8px 24px !important;
     border: 1px solid var(--primary-dark) !important;
     border-radius: var(--radius) !important;
     transition: all 0.3s ease !important;
 }
-/* 加入 :active */
 .nav-btn-highlight:hover, 
 .nav-btn-highlight:active {
     background: var(--accent) !important;
