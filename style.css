@@ -1,9 +1,10 @@
 /* =========================================
    DoubleU-Tech 最終完整版樣式表
-   修正版本：v2.0
-   重點修正：
-   1. 強制針對 .btn 加入 -webkit-tap-highlight-color，解決 <a> 標籤連結變色問題。
-   2. 統一所有按鈕 (Submit, Link, Nav) 的點擊橘色效果。
+   版本：v3.0 (Final Integrated)
+   整合內容：
+   1. Logo 高度調整為 75px。
+   2. iOS 按鈕修復：加入 -webkit-tap-highlight-color 移除灰色遮罩。
+   3. iOS 按鈕修復：在 :active 狀態加入 transition: none，解決點擊變色延遲問題。
    ========================================= */
 
 /* --- 1. 變數與全站重設 --- */
@@ -28,7 +29,7 @@ body {
     line-height: 1.6;
     color: var(--text-main);
     background: var(--white);
-    /* 全域移除 iOS 點擊高亮，但對 <a> 標籤有時不夠強 */
+    /* 全域移除 iOS 點擊高亮 */
     -webkit-tap-highlight-color: transparent; 
 }
 
@@ -70,7 +71,7 @@ h1, h2, h3, h4 {
     border: 2px solid transparent;
     text-align: center;
     
-    /* ★★★ 關鍵修正：這裡必須再次強制宣告，解決 Our Solutions 變色問題 ★★★ */
+    /* ★★★ 關鍵修正：強制移除 iOS 點擊灰色遮罩 ★★★ */
     -webkit-tap-highlight-color: transparent !important; 
     -webkit-touch-callout: none;
     user-select: none;
@@ -92,6 +93,9 @@ h1, h2, h3, h4 {
     color: var(--white) !important;
     transform: translateY(-2px);
     outline: none; /* 移除藍色框線 */
+    
+    /* ★★★ 關鍵修正：點擊時移除過渡動畫，讓手機上瞬間變色 ★★★ */
+    transition: none !important; 
 }
 
 /* 線框按鈕 (Meet The Team) */
@@ -110,6 +114,9 @@ h1, h2, h3, h4 {
     color: var(--white) !important;
     transform: translateY(-2px);
     outline: none; /* 移除藍色框線 */
+    
+    /* ★★★ 關鍵修正：點擊時移除過渡動畫，讓手機上瞬間變色 ★★★ */
+    transition: none !important;
 }
 
 /* 文字連結按鈕 (Read More) */
@@ -123,6 +130,7 @@ h1, h2, h3, h4 {
 .read-more-btn:active,
 .read-more-btn:focus { 
     color: var(--accent) !important; gap: 8px; outline: none;
+    transition: none !important; /* 同樣移除動畫 */
 }
 
 /* 區塊標題 */
@@ -140,6 +148,8 @@ h1, h2, h3, h4 {
     position: sticky; top: 0; z-index: 1000; padding: 15px 0;
 }
 .nav-inner { display: flex; justify-content: space-between; align-items: center; }
+
+/* 更新：Logo 高度設定 */
 .logo img { height: 75px; } 
 
 #nav-menu ul { display: flex; gap: 30px; align-items: center; }
@@ -171,6 +181,7 @@ h1, h2, h3, h4 {
     border-color: var(--accent) !important;
     color: var(--white) !important;
     outline: none;
+    transition: none !important; /* 確保一致性 */
 }
 .nav-btn-highlight::after { display: none !important; }
 
