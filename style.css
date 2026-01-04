@@ -1,72 +1,234 @@
-/* --- DoubleU-Tech 品牌顏色定義 --- */
+/* style.css */
+
+/* --- 1. 變數與重設 (Variables & Reset) --- */
 :root {
     --primary-dark: #0f2332;
     --accent: #eb611b;
+    --accent-light: rgba(235, 97, 27, 0.1);
     --grey-light: #f9f9f9;
+    --grey-bg: #f4f6f8;
     --text-main: #333333;
+    --text-light: #666666;
     --white: #ffffff;
+    --border-color: #e0e0e0;
+    --radius: 4px; /* 統一圓角 */
+    --shadow: 0 5px 20px rgba(0,0,0,0.08);
 }
 
-/* 基礎重設與全站字體 */
 * { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Montserrat', sans-serif; line-height: 1.6; color: var(--text-main); background: var(--white); padding-top: 100px; overflow-x: hidden; }
-.container { max-width: 1200px; margin: 0 auto; padding: 0 40px; position: relative; }
 
-/* --- Navbar (解決手機選單問題) --- */
-.navbar { height: 100px; background: #fff; position: fixed; width: 100%; top: 0; z-index: 9999; border-bottom: 1px solid #f0f0f0; display: flex; align-items: center; }
-.nav-inner { display: flex; justify-content: space-between; align-items: center; width: 100%; }
-.logo img { height: 75px; width: auto; }
-.menu-toggle { display: none; flex-direction: column; cursor: pointer; z-index: 10001; }
-.menu-toggle span { width: 25px; height: 3px; background-color: var(--primary-dark); margin: 2px 0; transition: 0.4s; }
-
-nav ul { list-style: none; display: flex; align-items: center; }
-nav ul li { margin-left: 35px; }
-nav ul li a { text-decoration: none; color: var(--primary-dark); font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
-.nav-btn { border: 2px solid var(--accent); color: var(--accent) !important; padding: 10px 22px; border-radius: 2px; }
-
-/* --- Hero Section (解決 index 中間被吃掉問題) --- */
-.hero { padding: 120px 0; background-color: var(--grey-light); position: relative; z-index: 10; }
-.hero h1 { font-family: 'Playfair Display', serif; font-size: 56px; line-height: 1.2; color: var(--primary-dark); margin: 30px 0; font-weight: 700; }
-.hero-btns { display: flex !important; gap: 20px !important; margin-top: 50px !important; }
-
-.btn { 
-    min-width: 180px !important; padding: 20px 0 !important; text-align: center !important;
-    text-decoration: none !important; font-weight: 700 !important; display: inline-block !important; 
-    font-size: 13px !important; text-transform: uppercase !important; letter-spacing: 2px !important;
-    border-radius: 2px !important; transition: 0.3s !important;
+body {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    color: var(--text-main);
+    background: var(--white);
+    -webkit-tap-highlight-color: transparent;
 }
-.btn-dark { background: var(--primary-dark) !important; color: var(--white) !important; border: 1px solid var(--primary-dark) !important; }
-.btn-outline { background: transparent !important; border: 1px solid var(--primary-dark) !important; color: var(--primary-dark) !important; }
 
-/* --- Insights 滑動區塊 --- */
-.news-slider-wrapper { position: relative; display: flex; align-items: center; margin-top: 50px; }
-.news-grid { display: flex; gap: 30px; overflow-x: auto; scroll-behavior: smooth; scrollbar-width: none; width: 100%; padding: 20px 0; }
-.news-grid::-webkit-scrollbar { display: none; }
-.news-card { min-width: calc(33.333% - 20px); background: #fff; border: 1px solid #eee; text-decoration: none; color: inherit; border-radius: 4px; overflow: hidden; transition: 0.3s; }
-.slide-btn { width: 50px; height: 50px; background: #fff; border: 1px solid #ddd; border-radius: 50%; cursor: pointer; position: absolute; z-index: 20; display: flex; align-items: center; justify-content: center; top: 50%; transform: translateY(-50%); }
-.prev-btn { left: -25px; } .next-btn { right: -25px; }
+a { text-decoration: none; color: inherit; transition: 0.3s; }
+ul { list-style: none; }
+img { max-width: 100%; height: auto; display: block; }
 
-/* --- About Team Section (解決照片跑版與彈窗失效) --- */
-.section { padding: 120px 0; width: 100%; position: relative; z-index: 1; }
-.team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; margin-top: 80px; text-align: center; }
-.member-photo { width: 220px !important; height: 220px !important; border-radius: 50% !important; margin: 0 auto 25px !important; overflow: hidden !important; border: 2px solid #eee !important; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-.member-photo img { width: 100% !important; height: 100% !important; object-fit: cover !important; display: block !important; }
+.container { width: 90%; max-width: 1200px; margin: 0 auto; padding: 0 15px; position: relative; }
 
-.modal { display: none !important; position: fixed; z-index: 10002; left: 0; top: 0; width: 100%; height: 100%; background: rgba(15, 35, 50, 0.95); align-items: center; justify-content: center; }
-.modal-content { background: #fff; padding: 60px; width: 90%; max-width: 650px; border-radius: 4px; position: relative; }
-.close { position: absolute; right: 30px; top: 25px; font-size: 40px; cursor: pointer; color: #ccc; }
+/* 標題字體 */
+h1, h2, h3, h4 { font-family: 'Playfair Display', serif; color: var(--primary-dark); }
 
-/* --- Footer --- */
-.footer { padding: 100px 0; background: var(--primary-dark); color: #fff; text-align: center; }
-.footer-logo img { height: 40px !important; filter: brightness(0) invert(1); margin-bottom: 30px; }
+/* --- 2. 常用元件 (Components) --- */
 
-/* RWD */
-@media (max-width: 992px) {
+/* 按鈕系統 */
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    font-weight: 700;
+    font-size: 14px;
+    border-radius: var(--radius);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+/* 實心按鈕 (Dark) */
+.btn-primary {
+    background-color: var(--primary-dark);
+    color: var(--white);
+    border-color: var(--primary-dark);
+}
+.btn-primary:hover {
+    background-color: var(--accent);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+}
+
+/* 線框按鈕 (Outline) */
+.btn-outline {
+    background-color: transparent;
+    color: var(--primary-dark);
+    border-color: var(--primary-dark);
+}
+.btn-outline:hover {
+    background-color: var(--primary-dark);
+    color: var(--white);
+    transform: translateY(-2px);
+}
+
+/* 連結按鈕 (Link Style) */
+.read-more-btn {
+    font-size: 13px; font-weight: 700; text-transform: uppercase;
+    color: var(--primary-dark); display: inline-flex; align-items: center; gap: 5px;
+}
+.read-more-btn:hover { color: var(--accent); gap: 8px; }
+
+/* 區塊標題樣式 */
+.section-header { text-align: center; margin-bottom: 50px; }
+.sub-title {
+    color: var(--accent); font-weight: 700; letter-spacing: 3px;
+    text-transform: uppercase; font-size: 13px; display: block; margin-bottom: 15px;
+}
+.main-title { font-size: 36px; line-height: 1.2; }
+
+/* --- 3. 導覽列 (Navbar) --- */
+.navbar {
+    background: var(--white);
+    box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+    position: sticky; top: 0; z-index: 1000; padding: 15px 0;
+}
+.nav-inner { display: flex; justify-content: space-between; align-items: center; }
+.logo img { height: 60px; } /* 稍微縮小一點更精緻 */
+
+#nav-menu ul { display: flex; gap: 30px; align-items: center; }
+#nav-menu a {
+    font-weight: 600; font-size: 14px; text-transform: uppercase;
+    letter-spacing: 1px; color: var(--primary-dark); position: relative;
+}
+#nav-menu a::after {
+    content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px;
+    background: var(--accent); transition: width 0.3s;
+}
+#nav-menu a:hover::after, #nav-menu a.active::after { width: 100%; }
+#nav-menu a:hover, #nav-menu a.active { color: var(--accent); }
+
+/* 導覽列右側按鈕特別樣式 */
+.nav-btn-highlight {
+    padding: 8px 24px !important;
+    border: 1px solid var(--primary-dark) !important;
+    border-radius: var(--radius) !important;
+}
+.nav-btn-highlight:hover {
+    background: var(--primary-dark); color: var(--white) !important;
+}
+.nav-btn-highlight::after { display: none !important; }
+
+.menu-toggle { display: none; cursor: pointer; flex-direction: column; gap: 5px; }
+.menu-toggle span { width: 25px; height: 3px; background: var(--primary-dark); transition: 0.3s; }
+
+/* --- 4. 首頁 Hero --- */
+.hero {
+    padding: 140px 0 100px;
+    background: linear-gradient(135deg, #f9f9f9 0%, #edf1f4 100%);
+    text-align: center;
+}
+.hero h1 { font-size: 48px; margin: 20px auto; max-width: 900px; }
+.hero p { font-size: 18px; color: var(--text-light); max-width: 700px; margin: 0 auto 40px; }
+.hero-btns { display: flex; justify-content: center; gap: 20px; }
+
+/* --- 5. 服務卡片 (Home & Services 共用) --- */
+.services-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;
+}
+.service-preview-card {
+    background: var(--white); padding: 40px 30px;
+    border-radius: 8px; border: 1px solid #eee;
+    transition: 0.3s; display: flex; flex-direction: column;
+}
+.service-preview-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow); border-color: transparent;
+}
+.service-icon {
+    width: 50px; height: 50px; background: var(--accent-light);
+    color: var(--accent); border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    margin-bottom: 25px;
+}
+.service-icon svg { width: 24px; height: 24px; fill: currentColor; }
+.service-preview-card h3 { font-size: 22px; margin-bottom: 15px; }
+.service-preview-card p { color: var(--text-light); font-size: 15px; margin-bottom: 20px; flex-grow: 1; }
+
+/* --- 6. Insights Slider (Home & Insights) --- */
+.insights-scroller {
+    display: flex; gap: 30px; overflow-x: auto; padding: 20px 5px;
+    scroll-behavior: smooth; scrollbar-width: none;
+}
+.insights-scroller::-webkit-scrollbar { display: none; }
+
+.insight-card {
+    min-width: 350px; background: var(--white); border-radius: 8px;
+    overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s;
+    display: flex; flex-direction: column; border: 1px solid #eee;
+}
+.insight-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+.insight-img {
+    height: 180px; background: #ddd; display: flex; align-items: center; justify-content: center;
+    color: var(--white); font-weight: 700; font-family: 'Playfair Display'; font-size: 20px;
+    position: relative;
+}
+.insight-img::after { content:''; position: absolute; inset: 0; background: rgba(0,0,0,0.2); }
+.insight-img span { position: relative; z-index: 2; padding: 0 20px; text-align: center; }
+
+.insight-body { padding: 25px; display: flex; flex-direction: column; flex: 1; }
+.insight-date { font-size: 12px; font-weight: 700; color: var(--accent); margin-bottom: 10px; }
+.insight-title { font-size: 20px; margin-bottom: 10px; line-height: 1.4; }
+.insight-desc { font-size: 14px; color: var(--text-light); margin-bottom: 20px; flex-grow: 1; }
+
+/* --- 7. Contact Form --- */
+.contact-section { background: var(--white); padding: 100px 0; }
+.contact-form-styled {
+    max-width: 800px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 30px;
+}
+.form-full { grid-column: span 2; }
+.form-group label {
+    display: block; font-size: 12px; font-weight: 700; color: var(--primary-dark);
+    text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;
+}
+.form-group input, .form-group textarea {
+    width: 100%; border: none; border-bottom: 1px solid #ddd;
+    padding: 12px 0; font-family: inherit; font-size: 16px; color: var(--primary-dark);
+    background: transparent; transition: 0.3s; border-radius: 0;
+}
+.form-group input:focus, .form-group textarea:focus {
+    outline: none; border-bottom: 2px solid var(--accent);
+}
+.form-group textarea { height: 100px; resize: vertical; }
+
+/* --- 8. Footer --- */
+.footer { background: var(--primary-dark); color: rgba(255,255,255,0.6); padding: 80px 0 40px; text-align: center; }
+.footer-logo img { filter: brightness(0) invert(1); margin: 0 auto 30px; opacity: 0.9; }
+.footer p { font-size: 14px; }
+
+/* --- 9. RWD --- */
+@media (max-width: 900px) {
+    .services-grid { grid-template-columns: 1fr; }
+    .contact-form-styled { grid-template-columns: 1fr; }
+    .form-full { grid-column: span 1; }
+    .insight-card { min-width: 300px; }
+}
+
+@media (max-width: 768px) {
     .menu-toggle { display: flex; }
-    nav { position: fixed; top: 100px; right: -100%; width: 100%; height: calc(100vh - 100px); background: #fff; transition: 0.4s; z-index: 10000; }
-    nav.active { right: 0; }
-    nav ul { flex-direction: column; padding: 40px; }
-    nav ul li { margin: 20px 0; margin-left: 0; }
-    .hero-btns, .team-grid { flex-direction: column; grid-template-columns: 1fr; }
-    .news-card { min-width: 85%; }
+    #nav-menu {
+        display: none; position: absolute; top: 100%; left: 0; width: 100%;
+        background: var(--white); padding: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        border-top: 1px solid #eee;
+    }
+    #nav-menu.active { display: block; }
+    #nav-menu ul { flex-direction: column; align-items: flex-start; }
+    #nav-menu li { width: 100%; }
+    #nav-menu a { display: block; padding: 10px 0; }
+    .nav-btn-highlight { display: block; text-align: center; margin-top: 10px; }
+    
+    .hero h1 { font-size: 32px; }
+    .hero-btns { flex-direction: column; }
+    .btn { display: block; text-align: center; }
 }
